@@ -169,14 +169,11 @@ net.Receive("fx_ders_start_ders", function(len, ply)
 
 	checkOutTime()
 
-	if fx_ders_hp_table[1] and fx_ders_hp_table[1].sinif then
-		if fx_ders_hp_table[1].sinif==tab.sinif then
-			return ply:ChatPrint("Bu sinifta zaten ders var!")
-		end
-	end
-	if fx_ders_hp_table[2] and fx_ders_hp_table[2].sinif then
-		if fx_ders_hp_table[2].sinif==tab.sinif then
-			return ply:ChatPrint("Bu sinifta zaten ders var!")
+	for i=1,2 do
+		if fx_ders_hp_table[i] and fx_ders_hp_table[i].sinif then
+			if fx_ders_hp_table[i].sinif==tab.sinif then
+				return ply:ChatPrint("Bu sinifta zaten ders var!")
+			end
 		end
 	end
 
