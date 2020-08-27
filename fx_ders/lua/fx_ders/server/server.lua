@@ -4,7 +4,7 @@ util.AddNetworkString("fx_ders_start_ders")
 util.AddNetworkString("fx_ders_end_ders")
 util.AddNetworkString("fx_ders_buyuver")
 
-fx_d.version = "3.8.2"
+fx_d.version = "3.8.3"
 
 fx_ders_hp_table = fx_ders_hp_table or {}
 fx_ders_hp_queue = fx_ders_hp_queue or {{},{}};
@@ -180,32 +180,29 @@ net.Receive("fx_ders_start_ders", function(len, ply)
 	fx_d_ders_basla(dersno,tab);
 end)
 
-hook.Add("PlayerInitialSpawn","fx_ders_sendders_initialspawn",function(ply)
-	timer.Simple(1, function()
-		for i=1, 2 do
-			if fx_ders_hp_table[i] and fx_ders_hp_table[i].time and (fx_ders_hp_table[i].time>CurTime()) then
-				timer.Simple(0,function()
-					net.Start("fx_ders_start_ders")
-						net.WriteInt(i,4)
-						net.WriteString(fx_ders_hp_table[i].starter)
-						net.WriteInt(table.Count(fx_ders_hp_table[i]),8)
-						for key,value in pairs(fx_ders_hp_table[i]) do
-							if key=="sure" then
-								value = ((fx_ders_hp_table[i].time-CurTime())/60)
-								net.WriteString(key..";"..tostring(value))
-							else
-								net.WriteString(key..";"..tostring(value))
-							end
-						end
-					net.Send(ply)
-				end)		
-			end
-		end
+hook.Add("PlayerFullLoad", "fx_ders_sendders_initialspawn", function(ply)
+	for i = 1, 2 do
+		if fx_ders_hp_table[i] and fx_ders_hp_table[i].time and (fx_ders_hp_table[i].time > CurTime()) then
+			net.Start("fx_ders_start_ders")
+				net.WriteInt(i, 4)
+				net.WriteString(fx_ders_hp_table[i].starter)
+				net.WriteInt(table.Count(fx_ders_hp_table[i]), 8)
 
-		if ply.SH_WHITELIST and canBeProfessor(ply) then
-			sendqueued(ply)
+				for key, value in pairs(fx_ders_hp_table[i]) do
+					if key == "sure" then
+						value = ((fx_ders_hp_table[i].time - CurTime()) / 60)
+						net.WriteString(key .. ";" .. tostring(value))
+					else
+						net.WriteString(key .. ";" .. tostring(value))
+					end
+				end
+			net.Send(ply)
 		end
-	end)
+	end
+
+	if ply.SH_WHITELIST and canBeProfessor(ply) then
+		sendqueued(ply)
+	end
 end)
 
 net.Receive("fx_ders_end_ders", function(len, ply)
