@@ -10,10 +10,15 @@ local kurallarcommands = {
 	"!rule",
 	"/rule"
 }
-
-hook.Add("PlayerInitialSpawn", "kurallar-menu", function(ply)
-	timer.Simple(3, function() net.Start("kurallar-menu") net.Send(ply) end)
+hook.Add( "Move", "kurallarmenusu", function( ply, mv )
+	if (ply.firstmove == undefined) then
+	net.Start("kurallar-menu") 
+	net.Send(ply)
+	ply.firstmove == true
+	end
 end)
+
+
 
 hook.Add("PlayerSay", "kurallar-chathook", function(ply, text, unused)
 	if table.HasValue(kurallarcommands,text) then 
