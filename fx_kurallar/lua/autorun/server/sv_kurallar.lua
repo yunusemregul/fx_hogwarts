@@ -11,8 +11,9 @@ local kurallarcommands = {
 	"/rule"
 }
 
-hook.Add("PlayerInitialSpawn", "kurallar-menu", function(ply)
-	timer.Simple(3, function() net.Start("kurallar-menu") net.Send(ply) end)
+hook.Add("PlayerFullLoad", "kurallar-menu", function(ply)
+	net.Start("kurallar-menu")
+	net.Send(ply)
 end)
 
 hook.Add("PlayerSay", "kurallar-chathook", function(ply, text, unused)
