@@ -1,6 +1,13 @@
 local evler = {"gryffindor", "hufflepuff", "ravenclaw", "slytherin"}
 util.AddNetworkString("puan_show")
 
+local function updateGlobalInts()
+	for _, ev in pairs(evler) do
+		local puan = tonumber(sql.QueryValue("SELECT puan FROM fxpuan WHERE ev=\"" .. ev .. "\";"))
+		SetGlobalInt("puan_"..ev, puan)
+	end
+end
+
 hook.Add("Initialize", "fxpuan", function()
 	sql.QueryValue("CREATE TABLE IF NOT EXISTS fxpuan(ev TEXT NOT NULL PRIMARY KEY, puan INT);")
 
@@ -11,6 +18,7 @@ hook.Add("Initialize", "fxpuan", function()
 	end
 
 	print("[FX-PUAN] Data hazir.")
+	updateGlobalInts()
 end)
 
 local checkIfProfesor
@@ -21,6 +29,7 @@ local function puanekle(ev, puan)
 	local yenipuan = suankipuan + puan
 	sql.QueryValue("UPDATE fxpuan SET puan=" .. yenipuan .. " WHERE ev=\"" .. ev .. "\";")
 
+	updateGlobalInts()
 	return yenipuan
 end
 
