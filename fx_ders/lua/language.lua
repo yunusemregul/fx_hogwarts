@@ -1,0 +1,12 @@
+fx_ders_language = fxLanguage:new("fx_ders")
+
+fx_ders_language:add("tr", "class_menu_closed", "Ders menüsü kapatıldı!")
+fx_ders_language:add("tr", "queue_for_first_class", "1. Ders İçin Sıra")
+fx_ders_language:add("tr", "queue_for_second_class", "1. Ders İçin Sıra")
+fx_ders_language:add("tr", "queue", "Sıra")
+fx_ders_language:add("tr", "starter_prof", "Başlatacak Prof.")
+fx_ders_language:add("tr", "lesson", "Ders")
+fx_ders_language:add("tr", "subject", "Konu")
+fx_ders_language:add("tr", "class", "Sınıf")
+fx_ders_language:add("tr", "timelength", "Süre")
+fx_ders_language:add("tr", "professor_menu_welcome", "Hoşgeldin %s!\nBaşlamadan önce hangi dersi ne kadar süreyle ve hangi sınıfta baş-\nlatacağını seçmelisin.")

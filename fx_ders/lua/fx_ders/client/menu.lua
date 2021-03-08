@@ -23,6 +23,9 @@ fx_ders_hp_time = fx_ders_hp_time or 0
 fx_ders_hp_table = fx_ders_hp_table or {{},{}};
 fx_ders_hp_queue = fx_ders_hp_queue or {{},{}};
 
+local lang = fx_ders_language
+local _L = lang.get
+
 local function drawShadowyText(text, font, x, y, color, alignX, alignY)
 	return draw.TextShadow({
 		text = text,
@@ -91,7 +94,7 @@ d_menu = function()
 		isopen = false
 		main_f:Remove()
 		queue_f:Remove()
-		fx_d_print("Ders menüsü kapatıldı!")
+		fx_d_print(_L("class_menu_closed"))
 	end
 	main_f.Paint = function(s,w,h)
 		draw.RoundedBox(6,0,0,w,h,Color(0,0,0,220))
@@ -106,33 +109,33 @@ d_menu = function()
 	queue_f:SetPos(x+w+6,y)
 
 	local tp = vgui.Create("fx_d_titlepanel",queue_f)
-	tp:SetText("1. Ders İçin Sıra","fx_d_normal")
+	tp:SetText(_L("queue_for_first_class"),"fx_d_normal")
 	tp:DockMargin(0,5,5,0)
 	tp:Dock(TOP)
 	tp:SetTall(h/2-12)
 
 	local q1 = vgui.Create("DListView",tp)
 	q1:Dock(FILL)
-	q1:AddColumn("Sıra")
-	q1:AddColumn("Başlatacak Prof.")
-	q1:AddColumn("Ders")
-	q1:AddColumn("Konu")
-	q1:AddColumn("Sınıf")
-	q1:AddColumn("Süre")
+	q1:AddColumn(_L("queue"))
+	q1:AddColumn(_L("starter_prof"))
+	q1:AddColumn(_L("lesson"))
+	q1:AddColumn(_L("subject"))
+	q1:AddColumn(_L("class"))
+	q1:AddColumn(_L("timelength"))
 
 	local tp = vgui.Create("fx_d_titlepanel",queue_f)
-	tp:SetText("2. Ders İçin Sıra","fx_d_normal")
+	tp:SetText(_L("queue_for_second_class"),"fx_d_normal")
 	tp:DockMargin(0,5,5,0)
 	tp:Dock(FILL)
 	
 	local q2 = vgui.Create("DListView",tp)
 	q2:Dock(FILL)
-	q2:AddColumn("Sıra")
-	q2:AddColumn("Başlatacak Prof.")
-	q2:AddColumn("Ders")
-	q2:AddColumn("Konu")
-	q2:AddColumn("Sınıf")
-	q2:AddColumn("Süre")
+	q2:AddColumn(_L("queue"))
+	q2:AddColumn(_L("starter_prof"))
+	q2:AddColumn(_L("lesson"))
+	q2:AddColumn(_L("subject"))
+	q2:AddColumn(_L("class"))
+	q2:AddColumn(_L("timelength"))
 
 	for i=1,2 do
 		for _, tab in ipairs(fx_ders_hp_queue[i]) do
@@ -165,18 +168,18 @@ d_menu = function()
 	end
 
 	local dl = vgui.Create("fx_d_labelpanel",scroll)
-	dl:SetText("Hoşgeldin "..LocalPlayer():Nick().."!\nBaşlamadan önce hangi dersi ne kadar süreyle ve hangi sınıfta baş-\nlatacağını seçmelisin.","fx_d_normal")
+	dl:SetText(_L("professor_menu_welcome", LocalPlayer():Nick()),"fx_d_normal") -- "Hoşgeldin "..LocalPlayer():Nick().."!\nBaşlamadan önce hangi dersi ne kadar süreyle ve hangi sınıfta baş-\nlatacağını seçmelisin."
 	dl:Dock(TOP)
 	dl:DockMargin(0,5,5,0)
 
 	local tp = vgui.Create("fx_d_titlepanel",scroll)
-	tp:SetText("Ders Numarası","fx_d_normal")
+	tp:SetText(_L("lesson_number"),"fx_d_normal")
 	tp:DockMargin(0,5,5,0)
 	tp:Dock(TOP)
 
 	dersnocombo = vgui.Create("DComboBox",tp)
 	dersnocombo:Dock(TOP)
-	dersnocombo:SetText("Bir ders seçin...")
+	dersnocombo:SetText(_L("choose_a_lesson"))
 	dersnocombo:AddChoice("1")
 	dersnocombo:AddChoice("2")
 	dersnocombo:ChooseOption(tostring(dersno),dersno)
@@ -187,7 +190,7 @@ d_menu = function()
 		local dersbitir = vgui.Create("DButton",scroll)
 		dersbitir:Dock(TOP)
 		dersbitir:DockMargin(0,5,5,0)
-		dersbitir:SetText("Aktif dersi bitir")
+		dersbitir:SetText(_L("end_active_lesson"))
 		dersbitir:SetTextColor(color_white)
 		dersbitir.Paint = function(s,w,h)
 			local col = Color(231,31,31)
@@ -202,14 +205,14 @@ d_menu = function()
 
 	/* derste verilecek büyü */
 		local tp = vgui.Create("fx_d_titlepanel",scroll)
-		tp:SetText("Ders Sonunda Verilecek Büyü","fx_d_normal")
+		tp:SetText(_L("spell_to_give_after_lesson"),"fx_d_normal")
 		tp:DockMargin(0,5,5,0)
 		tp:Dock(TOP)
 
 		local dmenu;
 
 		buyuver = vgui.Create("DTextEntry",tp)
-		buyuver:SetText("Verilecek büyünün ismi..")
+		buyuver:SetText(_L("name_of_the_spell_to_give"))
 		buyuver:Dock(TOP)
 		buyuver.OnValueChange = function(val)
 			val = val:GetValue()

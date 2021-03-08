@@ -1,7 +1,9 @@
+include("fx_ders/language.lua")
 include("fx_ders/config.lua")
 include("fx_ders/shared.lua")
 
 if SERVER then
+	AddCSLuaFile("fx_ders/language.lua")
 	AddCSLuaFile("fx_ders/config.lua")
 	AddCSLuaFile("fx_ders/shared.lua")	
 	include("fx_ders/server/server.lua")
