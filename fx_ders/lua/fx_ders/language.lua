@@ -1,4 +1,4 @@
-fx_ders_language = fxLanguage:new("fx_ders",
+fx_ders_language = fxLanguage:new("fx_ders")
 
 fx_ders_language:add("tr", {
     ["class_menu_closed"] = "Ders menüsü kapatıldı!",
