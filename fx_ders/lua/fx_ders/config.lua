@@ -7,30 +7,29 @@ fx_d.profsiraliderslimiti = 3; -- 1 prof kaç ders sıraya koyabilir
 fx_d.xp_araligi = 60 -- saniye cinsinden XP verme aralığı
 fx_d.xp_miktari = 300 -- belirlenen aralıkta verilecek XP miktarı
 
-fx_d.default_logo = "fx_ders/default.png" -- ders logosu boş olursa bu logo kullanılır.
+fx_d.default_logo = "fx_ders/undefined.png" -- ders logosu boş olursa bu logo kullanılır.
 
 fx_d.dersler = { -- Dersler
-	["Eski Tılsımlar"] = {logo = ""},
-	["Büyücülük"] = {logo = ""},
-	["Muggle Bilimleri"] = {logo = ""},
-	["Kehanet ve Geleceği Yorumlama"] = {logo = ""},
-	["Karanlık Sanatlara Karşı Savunma"] = {logo = ""},
-	["Astronomi ve Uzay Bilimleri"] = {logo = ""},
-	["Sihirli Yaratıkların Bakımı"] = {logo = ""},
-	["Quidditch ve Uçuş"] = {logo = ""},
-	["Düello"] = {logo = ""},
-	["Iksir"] = {logo = ""},
-	["Botanik"] = {logo = ""},
-	["Tarih"] = {logo = ""},
-	["Büyük Salonda Yemek"] = {logo = ""},
-	["Metamorfoz"] = {logo = ""},
-	["Simya"] = {logo = ""},
-	["Büyü Tarihi"] = {logo = ""},
-	["Metafiziksel Büyüler"] = {logo = ""},
-	["Cisimsiz Varlıklar Bilimi"] = {logo = ""},
-	["Lanet"] = {logo = ""},
-	["Profesör Alımı"] = {logo = ""},
-	["Müzik"] = {logo = ""}
+	["Eski Tılsımlar"] = {logo = "fx_ders/tilsim.png"},
+	["Büyücülük"] = {logo = "fx_ders/buyuculuk.png"},
+	["Muggle Bilimleri"] = {logo = "fx_ders/muggle.png"},
+	["Kehanet ve Geleceği Yorumlama"] = {logo = "fx_ders/kehanet.png"},
+	["Karanlık Sanatlara Karşı Savunma"] = {logo = "fx_ders/ksks.png"},
+	["Astronomi ve Uzay Bilimleri"] = {logo = "fx_ders/astronomi.png"},
+	["Sihirli Yaratıkların Bakımı"] = {logo = "fx_ders/yaratiklar.png"},
+	["Quidditch ve Uçuş"] = {logo = "fx_ders/quidditch.png"},
+	["Düello"] = {logo = "fx_ders/ksks.png"},
+	["Iksir"] = {logo = "fx_ders/iksir.png"},
+	["Botanik"] = {logo = "fx_ders/botanik.png"},
+	["Tarih"] = {logo = "fx_ders/tarih.png"},
+	["Büyük Salonda Yemek"] = {logo = "fx_ders/yemek.png"},
+	["Metamorfoz"] = {logo = "fx_ders/metamorfoz.png"},
+	["Simya"] = {logo = "fx_ders/iksir.png"},
+	["Büyü Tarihi"] = {logo = "fx_ders/tarih2.png"},
+	["Metafiziksel Büyüler"] = {logo = "fx_ders/metafizik.png"},
+	["Müzik"] = {logo = "fx_ders/muzik.png"},
+	["Gezi"] = {logo = "fx_ders/gezi.png"},
+	["Ödül Töreni"] = {logo = "fx_ders/kupa.png"}
 }
 
 --[[
