@@ -134,12 +134,12 @@ local function _menu()
 			end
 
 			if target==nil then
-				chat.AddText(Color(255,128,128),'[EV SISTEMI] ',color_white,'Hedef bulunamadi!')
+				chat.AddText(Color(255,128,128),'[FexaEv] ',color_white,'Hedef bulunamadi!')
 				return
 			end	
 
 			if not table.HasValue(homes, checks.home) then
-				chat.AddText(Color(255,128,128),'[EV SISTEMI] ',color_white,'Girdiginiz ev bulunamadi!')
+				chat.AddText(Color(255,128,128),'[FexaEv] ',color_white,'Girdiginiz ev bulunamadi!')
 				return
 			end			
 
