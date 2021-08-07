@@ -152,11 +152,6 @@ local function fill()
 	grid = vgui.Create("DScrollPanel",f)
 	grid:SetPos(2,30)
 	grid:SetSize(w-240,h-38)
-	grid.Paint = function(s,w,h) 
-		surface.SetDrawColor(color_white)
-		surface.SetMaterial(Material("fx_kutuphane/feel.png"))
-		surface.DrawTexturedRect(w/2-512/2,h/2-512/2,512,512)
-	end;
 
 	local bar = grid:GetVBar()
 	bar.Paint = function(s,w,h) 

@@ -4,7 +4,7 @@ AddCSLuaFile("cl_init.lua")
 
 function ENT:Initialize()
 	// models/models/mage/mage_npc.mdl
-	self:SetModel("models/models/mage/mage_npc.mdl");
+	self:SetModel("models/breen.mdl");
 	self:SetHullSizeNormal();
 	self:SetNPCState(NPC_STATE_SCRIPT);
 	self:SetSolid(SOLID_BBOX);
