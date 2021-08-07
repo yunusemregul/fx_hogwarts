@@ -159,23 +159,29 @@ net.Receive("kutuphane_menu", function(_, ply)
 		local bid = net.ReadString();
 		local count = net.ReadUInt(8);
 
-		local buid = sql.QueryValue("SELECT uid FROM playerinformation WHERE steamID='"..bid.."'");
+		MySQLite.query("SELECT CAST(uid as CHAR) FROM playerinformation WHERE steamID='"..bid.."'", function(data)
+			local buid = data[1]["CAST(uid as CHAR)"]
+			if not buid then
+				ply:FX_Notify(fx_kutuphane.dil["notfound"]);
+				return
+			end
 
-		if not buid then
-			ply:FX_Notify(fx_kutuphane.dil["notfound"]);
-			return
-		end
+			MySQLite.query("SELECT rpname FROM darkrp_player WHERE uid="..buid, function(data1)
+				local bname = data1[1]["rpname"]
+				if not bname then
+					ply:FX_Notify(fx_kutuphane.dil["notfound"]);
+					return
+				end
 
-		local bname = sql.QueryValue("SELECT rpname FROM darkrp_player WHERE uid="..buid);
+				net.Start("kutuphane_menu_transfer")
+					net.WriteString(bname)
+				net.Send(ply)
+			end);
 
-		if not bname then
-			a:FX_Notify(fx_kutuphane.dil["notfound"]);
-			return
-		end
-
-		net.Start("kutuphane_menu_transfer")
-			net.WriteString(bname)
-		net.Send(ply)
+			
+		end)
+		
+		
 		return;
 	elseif (order=="transfer") then
 		local bid = net.ReadString();
