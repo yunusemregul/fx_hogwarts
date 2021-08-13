@@ -2,16 +2,20 @@ fx_irk = fx_irk or {}
 
 fx_irk.gostermesuresi = 15 -- saniye biçiminden bildirimin ne kadar ekranda kalacağı
 
---	["Safkan"] = {
---		renk = Color(255,0,0),
---		ozellik = "- Safkan, 2 büyücü anne babadan doğan bir büyücüdür. 
---		Bazı safkan aileler, muggle doğumlulardan üstün olduklarını düşünürler.",
--- 		rate = "%40",
--- 		realkey = "safkan" -- sql datası için, doğru düzgün içinde türkçe şeyler geçmeyen birşey bulun id gibi
---	}
+--[[	
+	["Safkan"] = {
+		renk = Color(255,0,0),
+		ozellik = "- Safkan, 2 büyücü anne babadan doğan bir büyücüdür. 
+		Bazı safkan aileler, muggle doğumlulardan üstün olduklarını düşünürler.",
+		rate = "%40",
+ 		realkey = "safkan" -- sql datası için, doğru düzgün içinde türkçe şeyler geçmeyen birşey bulun id gibi
+	}
+--]]
 
--- Dikkat:
--- Ratelerin toplamı 100 yapmalı.
+--[[ 
+	Dikkat:
+	Ratelerin toplamı 100 yapmalı.
+--]]
 
 fx_irk.irklar = {
 	["Safkan"] = {

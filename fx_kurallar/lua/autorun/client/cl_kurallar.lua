@@ -1,5 +1,3 @@
--- moruqh ben uğraştım buna bayağı. scripthook marifet değil
-
 local isopen = isopen or false
 
 surface.CreateFont("kuralbaslik", {

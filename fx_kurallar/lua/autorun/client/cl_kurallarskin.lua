@@ -1,5 +1,3 @@
--- buna da uğraştım o yüzden yaneeeeeee dinlemezsin muhtemelen ama azıcık düşün, öğrenmeye çalış. scripthook da seni geliştirir elbet
-
 local SKIN = {}
 SKIN.PrintName = "Kurallar Skin"
 SKIN.Author = "Fexa"
